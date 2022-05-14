@@ -1,0 +1,27 @@
+{
+  "name": "myexpresspassportmongoserver",
+  "version": "1.0.0",
+  "description": "Server Express con passport per autenticazione",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaudioSviluppo/MyExpressPassportMongoServer.git"
+  },
+  "author": "Claudio Forgiarini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClaudioSviluppo/MyExpressPassportMongoServer/issues"
+  },
+  "homepage": "https://github.com/ClaudioSviluppo/MyExpressPassportMongoServer#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongodb": "^4.6.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
+  }
+}
