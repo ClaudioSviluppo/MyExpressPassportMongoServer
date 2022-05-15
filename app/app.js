@@ -3,6 +3,8 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
 const mongoConstants = require('./config/mongo');
+const serviceTest = require('./services/crudServiceTest');
+const ObjectId = require('mongodb').ObjectId; 
 
 //Stringa connessione db
 const dbURI= `mongodb+srv://${mongoConstants.user}:${mongoConstants.password}@${mongoConstants.cluster}.87a48.mongodb.net/${mongoConstants.database}?retryWrites=true&w=majority`;
@@ -19,9 +21,37 @@ let articoliCollection;
 //await possiamo utilizzarlo all'interno di funzioni asincrone quindi faccio
 
 
-//Creo 4 rotte passando indirizzo e callback di gestione
+//Creo 5 rotte passando indirizzo e callback di gestione
 //Sono operazioni asincrone e siccome async posso solo indicarlo all'interno di funzioni asincrone
 // rendo asincrona la callback con la parola chiave async
+
+//CRUD TEST localhost:3000/test/crud
+app.get('/test/crud', async (req, res) => {
+    const newLine="</br>";
+    const nomeTest= 'Nome test di prova';
+    const descrizioneTest= 'Descrizione test di prova';
+    let message;
+    console.log (await serviceTest.doStuff(nomeTest, descrizioneTest));
+    message='Start crud test'+newLine;
+    message=message+"Inserimento record ......."+newLine;
+    const objDummy = {
+        nome: 'Claudio',
+        desc: 'TestCrud'
+    };
+   const result = await articoliCollection.insertOne(objDummy);
+
+   //Cerco id record inserito
+   var good_id = new ObjectId(result.insertedId);
+   console.log('IdInserted',good_id)
+   const articolo = await articoliCollection.findOne({_id: good_id});
+   console.log(articolo)
+   
+    res.send(message);
+
+});
+
+
+
 //CREATE  localhost:3000/nuovo-articolo
 app.get('/nuovo-articolo', async (req, res) => {
     console.log("Chiamo")

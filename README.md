@@ -27,7 +27,7 @@ Mi registro o faccio accesso con google )Per quest caso uso google col secondo a
 creo app selezionando versione free  
 Creo Organization  => BabsOrganization  
 Creo Progetto => BabsProject  
-Creo Database (lascio default), ma uin fondo alla pagina Cambio Nome Cluster (BabsCluster) e poi faccio Crea Cluster  
+Creo Database (lascio default), ma in fondo alla pagina Cambio Nome Cluster (BabsCluster) e poi faccio Crea Cluster  
 Security QuickStart con Username Babaus password cognome Babs cammellato e numerato  
 avrà 512 Mb spazio  
 
