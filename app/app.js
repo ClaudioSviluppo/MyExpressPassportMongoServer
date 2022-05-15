@@ -2,9 +2,10 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const app = express();
+const mongoConstants = require('./config/mongo');
 
 //Stringa connessione db
-const dbURI = 'mongodb+srv://Babaus:rPLEJlBFYloncth1@babscluster.87a48.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const dbURI= `mongodb+srv://${mongoConstants.user}:${mongoConstants.password}@${mongoConstants.cluster}.87a48.mongodb.net/${mongoConstants.database}?retryWrites=true&w=majority`;
 
 //Creo istanza mongo client
 const mongoClient = new MongoClient(dbURI, { useUnifiedTopology: true });
@@ -113,8 +114,8 @@ app.get('/modifica-articolo', async (req, res) => {
 //DELETE
 app.get('cancella-articolo', (req, res) => { });
 
-async function run() {
-    await mongoClient.connect();
+async function run() { 
+   await mongoClient.connect();
     //Se non ho errori di connessione
     console.log('Connessione a mongodb Atlas effettuata');
     // il server express non deve partire prima che la connessione sia stata stabilita

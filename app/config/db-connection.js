@@ -2,7 +2,7 @@ const { MongoClient} = require('mongodb');
 const {EventEmitter} = require('events');
 
 //Stringa connessione db
-const dbURI='mongodb+srv://Babaus:rPLEJlBFYloncth1@babscluster.87a48.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 
 //Creo istanza mongo client
 
